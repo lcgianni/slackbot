@@ -7,11 +7,13 @@ import datetime as dt
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
 
-def choose_restaurant(meal='lunch'):
-    address = {'lunch': {'4505 BBQ': '234 Divisadero St.',
-                         "Signore's Pizza": '234 Fulton St.'},
-               'dinner': {'4505 BBQ': '234 Divisadero St.',
-                          "Signore's Pizza": '234 Fulton St.'}}
+def choose_restaurant(meal):
+    address = {'lunch': {'Uno Dos Tacos': '595 Market St.',
+                         'Lemonade': '781 Market St.'},
+               'dinner': {'4505 Burgers & BBQ': '705 Divisadero St.',
+                          'Kung Food': '1615 McAllister St.',
+                          'Saffron Grill': '1279 Fulton St.',
+                          'El Rancho Grande': '855 Divisadero St.'}}
     choice = random.choice(list(address[meal].keys()))
     return choice, address[meal][choice]
 
