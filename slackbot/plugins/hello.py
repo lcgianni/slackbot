@@ -1,6 +1,6 @@
 #coding: UTF-8
 import re
-import random
+#import random
 
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
