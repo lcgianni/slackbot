@@ -4,7 +4,7 @@ from slackbot.bot import respond_to
 from slackbot.bot import listen_to
 
 
-@respond_to('(hello|hi|hey|olá|oi|bom dia|boa tarde|boa noite|e aí|e ai)', re.IGNORECASE)
+@respond_to('hello|hi|hey|olá|oi', re.IGNORECASE)
 def hello_reply(message):
     message.reply('hello sender!')
 
