@@ -35,7 +35,7 @@ def hello_reply(message):
 def arrive_at_house_reply(message):
     message.reply('A melhor forma de ir do aeroporto até a casa é pedindo um Uber. Qualquer dúvida, me pergunte qual o endereço da casa.')
 
-@respond_to('endereço|endereco|endreco.*casa|house', re.IGNORECASE)
+@respond_to('endereço|endereco|endreco.*casa|house|casa', re.IGNORECASE)
 def house_address_reply(message):
     message.reply('O endereço da casa é 1314 Fulton St.')
 
@@ -43,7 +43,7 @@ def house_address_reply(message):
 def enter_house_reply(message):
     message.reply('Do lado esquerdo da porta, você vai encontrar um cofre. A senha é 143133. Dentro deste cofre, você encontrará a chave da casa.')
 
-@respond_to('endereço|endereco|endreco.*galvanize|coworking', re.IGNORECASE)
+@respond_to('endereço|endereco|endreco.*galvanize|coworking|galvanize', re.IGNORECASE)
 def galvanize_address_reply(message):
     message.reply('O endereço da Galvanize é 543 Howard St.')
 
@@ -98,6 +98,6 @@ def song_reply(message):
 def thankyou_reply(message):
     message.react('+1')
 
-@respond_to('tchau|até|valeu|flw|vlw', re.IGNORECASE)
+@respond_to('tchau|valeu|flw|vlw', re.IGNORECASE)
 def bye_reply(message):
     message.reply('Até mais!')
