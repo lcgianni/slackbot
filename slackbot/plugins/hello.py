@@ -8,7 +8,7 @@ from slackbot.bot import listen_to
 def choose_restaurant(meal='lunch'):
     address = {'dinner': {'4505 BBQ': '234 Divisadero St.',
                           'Signores Pizza': '234 Fulton St.'}}
-    choice = random.choice(address[meal].keys())
+    choice = random.choice(list(address[meal].keys()))
     return choice, address[meal][choice]
 
 @respond_to('hello|hi|hey|olá|ola|oi', re.IGNORECASE)
