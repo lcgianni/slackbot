@@ -12,13 +12,25 @@ def hello_reply(message):
 def hello_reply(message):
     message.reply('Do lado esquerdo da porta, você vai encontrar um cofre.')
 
-@respond_to('endereço.*casa', re.IGNORECASE)
+@respond_to('endereço|endereco|endreco.*casa|house', re.IGNORECASE)
 def hello_reply(message):
     message.reply('Esse é o endereço da casa.')
 
-@respond_to('endereço.*galvanize|coworking', re.IGNORECASE)
+@respond_to('endereço|endereco|endreco.*galvanize|coworking', re.IGNORECASE)
 def hello_reply(message):
     message.reply('Esse é o endereço da Galvanize.')
+
+@respond_to('almoço|almoco|almocar', re.IGNORECASE)
+def hello_reply(message):
+    message.reply('Que tal comer neste lugar?')
+
+@respond_to('janta|jantar', re.IGNORECASE)
+def hello_reply(message):
+    message.reply('Que tal jantar neste lugar?')
+
+@respond_to('musica|música', re.IGNORECASE)
+def hello_reply(message):
+    message.reply('Miley Cyrus')
 
 @respond_to('^reply_webapi$')
 def hello_webapi(message):
