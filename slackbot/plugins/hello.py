@@ -12,6 +12,14 @@ def hello_reply(message):
 def hello_reply(message):
     message.reply('Do lado esquerdo da porta, você vai encontrar um cofre.')
 
+@respond_to('endereço.*casa', re.IGNORECASE)
+def hello_reply(message):
+    message.reply('Esse é o endereço da casa.')
+
+@respond_to('endereço.*galvanize|coworking', re.IGNORECASE)
+def hello_reply(message):
+    message.reply('Esse é o endereço da Galvanize.')
+
 @respond_to('^reply_webapi$')
 def hello_webapi(message):
     message.reply_webapi('hello there!', attachments=[{
