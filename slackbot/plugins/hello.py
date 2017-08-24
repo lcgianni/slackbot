@@ -91,7 +91,7 @@ def dinner_reply(message):
 def event_reply(message):
     message.reply('Dê uma olhada no eventbrite.com ou meetup.com')
 
-@respond_to('entediado|bored|passeio|visita|conhecer|passear|visitar', re.IGNORECASE)
+@respond_to('entediad|bored|passeio|visita|conhecer|passear|visitar', re.IGNORECASE)
 def bored_reply(message):
     message.reply(choose_experience())
 

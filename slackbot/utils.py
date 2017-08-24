@@ -86,6 +86,7 @@ class WorkerPool(object):
         conn, cursor = connect_to_db()
         cursor.execute("INSERT INTO interactions (type, channel, username, text, ts, source_team, team) VALUES (%s, %s, %s, %s, %s, %s, %s)", (msg[1]['type'], msg[1]['channel'], msg[1]['user'], msg[1]['text'], msg[1]['ts'], msg[1]['source_team'], msg[1]['team']))
         conn.commit()
+        conn.close()
 
     def do_work(self):
         while True:
