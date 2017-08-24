@@ -50,9 +50,7 @@ def reply_with_meal(message, meal):
 
 @respond_to('comer|fome|comida', re.IGNORECASE)
 def eat_reply(message):
-    current_time = dt.datetime.now().hour
-    weekday = dt.datetime.today().weekday()
-    if current_time < 15 and weekday >= 5:
+    if dt.datetime.now().hour < 15 and dt.datetime.today().weekday() >= 5:
         reply_with_meal(message, 'almoçar')
         lunch_reply(message)
     else:
@@ -84,11 +82,10 @@ def bored_reply(message):
 def song_reply(message):
     message.reply('Miley Cyrus')
 
-@respond_to('thanks|thank|thanx|obrigado|orbgiado|obg|valeu|vlw', re.IGNORECASE)
+@respond_to('thanks|thank|thanx|obrigado|orbgiado|obg|valeu', re.IGNORECASE)
 def thankyou_reply(message):
     message.react('+1')
 
 @respond_to('tchau|até|valeu|flw|vlw', re.IGNORECASE)
 def bye_reply(message):
-    wait_before_answering()
     message.reply('Até mais!')
