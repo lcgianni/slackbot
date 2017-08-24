@@ -72,8 +72,11 @@ class WorkerPool(object):
     def add_task(self, msg):
         self.queue.put(msg)
 
+    def save(self, msg):
+        print(msg[1]['text'])
+
     def do_work(self):
         while True:
             msg = self.queue.get()
             self.func(msg)
-            print(msg[1]['text'])
+            self.save(msg)
