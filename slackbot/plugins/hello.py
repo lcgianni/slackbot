@@ -7,8 +7,8 @@ from slackbot.bot import respond_to
 from slackbot.bot import listen_to
 
 def choose_restaurant(meal='lunch'):
-    address = {'lunch': {'4505 BBQ': '234 Divisadero St.',
-                         'Signores Pizza': '234 Fulton St.'},
+    address = {'lunch': {'Place 1': '234 Divisadero St.',
+                         'Place 2': '234 Fulton St.'},
                'dinner': {'4505 BBQ': '234 Divisadero St.',
                           'Signores Pizza': '234 Fulton St.'}}
     choice = random.choice(list(address[meal].keys()))
