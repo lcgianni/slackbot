@@ -1,6 +1,7 @@
 #coding: UTF-8
 import re
 import random
+import time
 import datetime as dt
 
 from slackbot.bot import respond_to
@@ -45,8 +46,13 @@ def eat_reply(message):
     current_time = dt.datetime.now().hour
     weekday = dt.datetime.today().weekday()
     if current_time < 15 and weekday >= 5:
+        message.reply('Hmmmm... Deixe eu pensar em um lugar legal para almoçar.')
+        time.sleep(3)
         lunch_reply(message)
-    dinner_reply(message)
+    else:
+        message.reply('Hmmmm... Deixe eu pensar em um lugar legal para jantar.')
+        time.sleep(3)
+        dinner_reply(message)
 
 @respond_to('almoço|almoco|almocar', re.IGNORECASE)
 def lunch_reply(message):
@@ -70,6 +76,6 @@ def bored_reply(message):
 def song_reply(message):
     message.reply('Miley Cyrus')
 
-@respond_to('thanks|thank|obrigado|obg|valeu|vlw', re.IGNORECASE)
+@respond_to('thanks|thank|thanx|obrigado|orbgiado|obg|valeu|vlw', re.IGNORECASE)
 def song_reply(message):
     message.react('+1')
