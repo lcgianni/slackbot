@@ -97,6 +97,10 @@ def bored_reply(message):
 def song_reply(message):
     message.reply('Miley Cyrus')
 
+@respond_to('idade', re.IGNORECASE)
+def age_reply(message):
+    message.reply('Tenho 42 anos')
+
 @respond_to('thanks|thank|thanx|obrigado|orbgiado|obg|valeu', re.IGNORECASE)
 def thankyou_reply(message):
     message.react('+1')
