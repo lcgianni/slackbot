@@ -7,6 +7,7 @@ import datetime as dt
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
 
+
 def choose_restaurant(meal):
     address = {'lunch': {'Uno Dos Tacos': '595 Market St.',
                          'Lemonade': '781 Market St.'},
@@ -51,14 +52,10 @@ def reply_with_meal(message, meal):
     wait_before_answering()
 
 def is_early():
-    if dt.datetime.now().hour < 15:
-        return True
-    return False
+    if dt.datetime.now().hour < 15: return True; return False
 
 def is_weekday():
-    if dt.datetime.today().weekday() >= 5:
-        return True
-    return False
+    if dt.datetime.today().weekday() >= 5: return True; return False
 
 @respond_to('comer|fome|comida', re.IGNORECASE)
 def eat_reply(message):
