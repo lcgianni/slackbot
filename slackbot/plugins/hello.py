@@ -101,6 +101,10 @@ def song_reply(message):
 def age_reply(message):
     message.reply('Tenho 42 anos')
 
+@respond_to('seu|teu.*nome', re.IGNORECASE)
+def name_reply(message):
+    message.reply('Tenho 42 anos')
+
 @respond_to('thanks|thank|thanx|obrigado|orbgiado|obg|valeu', re.IGNORECASE)
 def thankyou_reply(message):
     message.react('+1')
