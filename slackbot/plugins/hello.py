@@ -25,7 +25,8 @@ def choose_experience():
                'Visite a Prisão de Alcatraz',
                'Vá de carro até Napa Valley',
                'Vá de carro até o Yosemite',
-               'Ouça Friends do Justin Bieber']
+               'Ouça Friends do Justin Bieber',
+               'Pergunte para a @agueda sobre cachorro-quente']
     choice = random.choice(options)
     return choice
 
