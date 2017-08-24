@@ -38,7 +38,7 @@ def hello_reply(message):
 @respond_to('janta|jantar', re.IGNORECASE)
 def hello_reply(message):
     choice, address = choose_restaurant(meal='dinner')
-    message.reply("Que tal jantar no %s? O endereço é %s", (choice, address))
+    message.reply("Que tal jantar no %s? O endereço é %s" % (choice, address))
 
 @respond_to('evento', re.IGNORECASE)
 def hello_reply(message):
