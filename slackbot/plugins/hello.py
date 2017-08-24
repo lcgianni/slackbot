@@ -24,7 +24,8 @@ def choose_experience():
                'Conheça o Golden Gate Park',
                'Visite a Prisão de Alcatraz',
                'Vá de carro até Napa Valley',
-               'Vá de carro até o Yosemite']
+               'Vá de carro até o Yosemite',
+               'Ouça Friends do Justin Bieber']
     choice = random.choice(options)
     return choice
 
