@@ -84,3 +84,7 @@ def song_reply(message):
 @respond_to('thanks|thank|thanx|obrigado|orbgiado|obg|valeu|vlw', re.IGNORECASE)
 def song_reply(message):
     message.react('+1')
+
+@respond_to('tchau|até|valeu|flw|vlw', re.IGNORECASE)
+def song_reply(message):
+    message.reply('Até mais!')
