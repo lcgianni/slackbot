@@ -69,3 +69,7 @@ def bored_reply(message):
 @respond_to('musica|música', re.IGNORECASE)
 def song_reply(message):
     message.reply('Miley Cyrus')
+
+@respond_to('thanks|thank|obrigado|obg|valeu|vlw', re.IGNORECASE)
+def song_reply(message):
+    message.react('+1')
