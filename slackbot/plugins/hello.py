@@ -50,10 +50,10 @@ def eat_reply(message):
     current_time = dt.datetime.now().hour
     weekday = dt.datetime.today().weekday()
     if current_time < 15 and weekday >= 5:
-        reply_with_meal('almoçar')
+        reply_with_meal(message, 'almoçar')
         lunch_reply(message)
     else:
-        reply_with_meal('jantar')
+        reply_with_meal(message, 'jantar')
         dinner_reply(message)
 
 def reply_with_address(message, choice, address):
