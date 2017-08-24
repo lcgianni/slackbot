@@ -1,12 +1,15 @@
 #coding: UTF-8
 import re
 import random
+import datetime as dt
 
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
 
 def choose_restaurant(meal='lunch'):
-    address = {'dinner': {'4505 BBQ': '234 Divisadero St.',
+    address = {'lunch': {'4505 BBQ': '234 Divisadero St.',
+                         'Signores Pizza': '234 Fulton St.'},
+               'dinner': {'4505 BBQ': '234 Divisadero St.',
                           'Signores Pizza': '234 Fulton St.'}}
     choice = random.choice(list(address[meal].keys()))
     return choice, address[meal][choice]
@@ -31,18 +34,31 @@ def hello_reply(message):
 def hello_reply(message):
     message.reply('O endereço da Galvanize é 543 Howard St.')
 
-@respond_to('almoço|almoco|almocar', re.IGNORECASE)
+@respond_to('comer|fome', re.IGNORECASE)
 def hello_reply(message):
-    message.reply('Que tal comer neste lugar?')
+    current_time = dt.datetime.now().hour
+    weekday = dt.datetime.today().weekday()
+    if current_time < 15 and weekday >= 5:
+        lunch_reply(message)
+    dinner_reply(message)
+
+@respond_to('almoço|almoco|almocar', re.IGNORECASE)
+def lunch_reply(message):
+    choice, address = choose_restaurant(meal='lunch')
+    message.reply("Que tal almoçar no %s? O endereço é %s" % (choice, address))
 
 @respond_to('janta|jantar', re.IGNORECASE)
-def hello_reply(message):
+def dinner_reply(message):
     choice, address = choose_restaurant(meal='dinner')
     message.reply("Que tal jantar no %s? O endereço é %s" % (choice, address))
 
 @respond_to('evento', re.IGNORECASE)
 def hello_reply(message):
     message.reply('Dê uma olhada no eventbrite.com ou meetup.com')
+
+@respond_to('entediado|bored', re.IGNORECASE)
+def hello_reply(message):
+    message.reply('Caminhe até a Golden Gate Bridge')
 
 @respond_to('musica|música', re.IGNORECASE)
 def hello_reply(message):
