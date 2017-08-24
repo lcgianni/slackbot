@@ -21,12 +21,6 @@ def connect_to_db():
 	cursor = conn.cursor()
 	return conn, cursor
 
-def run_query(query):
-    conn, cursor = connect_to_db()
-    cursor.execute(query)
-    conn.commit()
-    conn.close()
-
 def download_file(url, fpath):
     logger.debug('starting to fetch %s', url)
     r = requests.get(url, stream=True)
@@ -89,8 +83,10 @@ class WorkerPool(object):
         self.queue.put(msg)
 
     def save(self, msg):
-        query = "INSERT INTO interactions (type, channel, username, text, ts, source_team, team) VALUES (%s, %s, %s, %s, %s, %s, %s)" % (msg[1]['type'], msg[1]['channel'], msg[1]['user'], msg[1]['text'], msg[1]['ts'], msg[1]['source_team'], msg[1]['team'])
-        run_query(query)
+        conn, cursor = connect_to_db()
+        cursor.execute("INSERT INTO interactions (type, channel, username, text, ts, source_team, team) VALUES (%s, %s, %s, %s, %s, %s, %s)", (msg[1]['type'], msg[1]['channel'], msg[1]['user'], msg[1]['text'], msg[1]['ts'], msg[1]['source_team'], msg[1]['team']))
+        conn.commit()
+        conn.close()
 
     def do_work(self):
         while True:
