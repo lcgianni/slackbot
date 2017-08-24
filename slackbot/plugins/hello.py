@@ -115,6 +115,15 @@ def thankyou_reply(message):
 def bye_reply(message):
     message.reply('Até mais!')
 
+@respond_to('.*', re.IGNORECASE)
+def save(message):
+    print('Saving message...')
+
 @default_reply
 def my_default_hanlder(message):
     message.reply('Falou a pessoa que assiste filme de salsicha.')
+
+#senha da casa
+#senha do wifi
+#pessoas de cada batch darem sugestoes para melhorar
+#dicas de empresas (offices legais, boas praticas de RH, CRM do Tormena)
