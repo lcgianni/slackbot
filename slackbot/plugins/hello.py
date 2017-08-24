@@ -115,10 +115,6 @@ def thankyou_reply(message):
 def bye_reply(message):
     message.reply('Até mais!')
 
-@respond_to('.*', re.IGNORECASE)
-def save(message):
-    print('Saving message...')
-
 @default_reply
 def my_default_hanlder(message):
     message.reply('Falou a pessoa que assiste filme de salsicha.')
