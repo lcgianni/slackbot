@@ -89,7 +89,7 @@ class WorkerPool(object):
         self.queue.put(msg)
 
     def save(self, msg):
-        query = "INSERT INTO interactions (type, channel, username, text, ts, source_team, team) VALUES (%s, %s, %s, %s, %s, %s, %s)", (msg[1]['type'], msg[1]['channel'], msg[1]['user'], msg[1]['text'], msg[1]['ts'], msg[1]['source_team'], msg[1]['team'])
+        query = "INSERT INTO interactions (type, channel, username, text, ts, source_team, team) VALUES (%s, %s, %s, %s, %s, %s, %s)" % (msg[1]['type'], msg[1]['channel'], msg[1]['user'], msg[1]['text'], msg[1]['ts'], msg[1]['source_team'], msg[1]['team'])
         run_query(query)
 
     def do_work(self):
