@@ -76,4 +76,4 @@ class WorkerPool(object):
         while True:
             msg = self.queue.get()
             self.func(msg)
-            print(msg)
+            print(msg[1]['text'])
