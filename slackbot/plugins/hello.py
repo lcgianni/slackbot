@@ -41,17 +41,19 @@ def enter_house_reply(message):
 def galvanize_address_reply(message):
     message.reply('O endereço da Galvanize é 543 Howard St.')
 
+def reply_with_meal(message, meal):
+    message.reply('Hmmmm... Deixa eu pensar em um lugar legal para %s.' %(meal))
+    time.sleep(3)
+
 @respond_to('comer|fome|comida', re.IGNORECASE)
 def eat_reply(message):
     current_time = dt.datetime.now().hour
     weekday = dt.datetime.today().weekday()
     if current_time < 15 and weekday >= 5:
-        message.reply('Hmmmm... Deixa eu pensar em um lugar legal para almoçar.')
-        time.sleep(3)
+        reply_with_meal('almoçar')
         lunch_reply(message)
     else:
-        message.reply('Hmmmm... Deixa eu pensar em um lugar legal para jantar.')
-        time.sleep(3)
+        reply_with_meal('jantar')
         dinner_reply(message)
 
 def reply_with_address(message, choice, address):
