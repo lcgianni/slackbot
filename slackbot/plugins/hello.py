@@ -20,7 +20,10 @@ def choose_restaurant(meal):
 
 def choose_experience():
     options = ['Caminhe até a Golden Gate Bridge',
-               'Conheça o Golden Gate Park']
+               'Conheça o Golden Gate Park',
+               'Visite a Prisão de Alcatraz',
+               'Vá de carro até Napa Valley',
+               'Vá de carro até o Yosemite']
     choice = random.choice(options)
     return choice
 
