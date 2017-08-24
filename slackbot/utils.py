@@ -10,17 +10,16 @@ import six
 import psycopg2
 import sys
 
-def connect_to_db():
-	conn_string = "host='ec2-54-163-233-201.compute-1.amazonaws.com' dbname='dc63ips6tsp9hv' user='gowsrimbmolcca' password='35bb3b90a5f84cbf45752e28274fe6d6f49e6bdc6d4e6b9442f0ce8de8865a11'"
-	conn = psycopg2.connect(conn_string)
-	cursor = conn.cursor()
-	return cursor
-
 if __name__ == "__main__":
 	main()
 
 logger = logging.getLogger(__name__)
 
+def connect_to_db():
+	conn_string = "host='ec2-54-163-233-201.compute-1.amazonaws.com' dbname='dc63ips6tsp9hv' user='gowsrimbmolcca' password='35bb3b90a5f84cbf45752e28274fe6d6f49e6bdc6d4e6b9442f0ce8de8865a11'"
+	conn = psycopg2.connect(conn_string)
+	cursor = conn.cursor()
+	return cursor
 
 def download_file(url, fpath):
     logger.debug('starting to fetch %s', url)
@@ -85,7 +84,7 @@ class WorkerPool(object):
 
     def save(self, msg):
         cursor = connect_to_db()
-        print(msg[1]['text'])
+        print(msg[1])
 
     def do_work(self):
         while True:
