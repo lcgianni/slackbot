@@ -41,9 +41,12 @@ def enter_house_reply(message):
 def galvanize_address_reply(message):
     message.reply('O endereço da Galvanize é 543 Howard St.')
 
+def wait_before_answering():
+    time.sleep(3)
+
 def reply_with_meal(message, meal):
     message.reply('Hmmmm... Deixa eu pensar em um lugar legal para %s.' %(meal))
-    time.sleep(3)
+    wait_before_answering()
 
 @respond_to('comer|fome|comida', re.IGNORECASE)
 def eat_reply(message):
@@ -82,9 +85,10 @@ def song_reply(message):
     message.reply('Miley Cyrus')
 
 @respond_to('thanks|thank|thanx|obrigado|orbgiado|obg|valeu|vlw', re.IGNORECASE)
-def song_reply(message):
+def thankyou_reply(message):
     message.react('+1')
 
 @respond_to('tchau|até|valeu|flw|vlw', re.IGNORECASE)
-def song_reply(message):
+def bye_reply(message):
+    wait_before_answering()
     message.reply('Até mais!')
