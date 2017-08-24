@@ -41,7 +41,7 @@ def enter_house_reply(message):
 def galvanize_address_reply(message):
     message.reply('O endereço da Galvanize é 543 Howard St.')
 
-@respond_to('comer|fome', re.IGNORECASE)
+@respond_to('comer|fome|comida', re.IGNORECASE)
 def eat_reply(message):
     current_time = dt.datetime.now().hour
     weekday = dt.datetime.today().weekday()
@@ -65,7 +65,7 @@ def lunch_reply(message):
 @respond_to('janta|jantar', re.IGNORECASE)
 def dinner_reply(message):
     choice, address = choose_restaurant(meal='dinner')
-    reply_with_address(message, ,choice, address)
+    reply_with_address(message, choice, address)
 
 @respond_to('evento', re.IGNORECASE)
 def event_reply(message):
