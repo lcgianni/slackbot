@@ -8,7 +8,7 @@ from slackbot.bot import listen_to
 def hello_reply(message):
     message.reply('Olá, como posso lhe ajudar?')
 
-@respond_to('^(?=.*\bentrar\b)(?=.*\bcasa\b).*$', re.IGNORECASE)
+@respond_to('entrar.*casa', re.IGNORECASE)
 def hello_reply(message):
     message.reply('Do lado esquerdo da porta, você vai encontrar um cofre.')
 
