@@ -19,7 +19,7 @@ def choose_restaurant(meal):
     return choice, address[meal][choice]
 
 def choose_experience():
-    options = ['Caminhe até a Golden Gate Bridge',
+    options = ['Já caminhou até a Golden Gate Bridge? Peça dicas ao @lcgianni',
                'Conheça o Golden Gate Park',
                'Visite a Prisão de Alcatraz',
                'Vá de carro até Napa Valley',
@@ -29,7 +29,7 @@ def choose_experience():
 
 @respond_to('hello|hi|hey|olá|ola|oi', re.IGNORECASE)
 def hello_reply(message):
-    message.reply('Olá, como posso lhe ajudar?')
+    message.reply('Olá! Como posso lhe ajudar?')
     wait_before_answering(2)
     message.reply('Me pergunte sobre onde comer, como chegar na casa e na Galvanize, e passeios para fazer em São Francisco.')
 
@@ -60,7 +60,7 @@ def is_early():
     if dt.datetime.now().hour < 15: return True; return False
 
 def is_weekday():
-    if dt.datetime.today().weekday() >= 5: return True; return False
+    if dt.datetime.today().weekday() <= 5: return True; return False
 
 @respond_to('comer|fome|comida', re.IGNORECASE)
 def eat_reply(message):
@@ -103,3 +103,7 @@ def thankyou_reply(message):
 @respond_to('tchau|valeu|flw|vlw', re.IGNORECASE)
 def bye_reply(message):
     message.reply('Até mais!')
+
+@default_reply
+def my_default_hanlder(message):
+    message.reply('Falou a pessoa que assiste filme de salsicha.')
