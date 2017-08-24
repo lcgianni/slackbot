@@ -30,7 +30,7 @@ def choose_experience():
 @respond_to('hello|hi|hey|olá|ola|oi', re.IGNORECASE)
 def hello_reply(message):
     message.reply('Olá, como posso lhe ajudar?')
-    wait_before_answering(1)
+    wait_before_answering(2)
     message.reply('Me pergunte sobre onde comer, como chegar na casa e na Galvanize, e passeios para fazer em São Francisco.')
 
 @respond_to('aeroporto.*casa', re.IGNORECASE)
