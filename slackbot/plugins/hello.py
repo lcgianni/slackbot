@@ -4,10 +4,13 @@ from slackbot.bot import respond_to
 from slackbot.bot import listen_to
 
 
-@respond_to('hello|hi|hey|olá|oi', re.IGNORECASE)
+@respond_to('hello|hi|hey|olá|ola|oi', re.IGNORECASE)
 def hello_reply(message):
-    message.reply('hello sender!')
+    message.reply('Olá, como posso lhe ajudar?')
 
+@respond_to('^(?=.*\bentrar\b)(?=.*\bcasa\b).*$', re.IGNORECASE)
+def hello_reply(message):
+    message.reply('Do lado esquerdo da porta, você vai encontrar um cofre.')
 
 @respond_to('^reply_webapi$')
 def hello_webapi(message):
