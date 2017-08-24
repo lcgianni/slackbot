@@ -48,12 +48,12 @@ def reply_with_meal(message, meal):
     message.reply('Hmmmm... Deixa eu pensar em um lugar legal para %s.' %(meal))
     wait_before_answering()
 
-def is_early?():
+def is_early():
     if dt.datetime.now().hour < 15:
         return True
     return False
 
-def is_weekday?():
+def is_weekday():
     if dt.datetime.today().weekday() >= 5:
         return True
     return False
