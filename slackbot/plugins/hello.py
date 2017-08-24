@@ -57,12 +57,12 @@ def eat_reply(message):
 @respond_to('almoço|almoco|almocar', re.IGNORECASE)
 def lunch_reply(message):
     choice, address = choose_restaurant(meal='lunch')
-    message.reply("Que tal almoçar no %s? O endereço é %s" % (choice, address))
+    message.reply("Que tal comer no %s? O endereço é %s" % (choice, address))
 
 @respond_to('janta|jantar', re.IGNORECASE)
 def dinner_reply(message):
     choice, address = choose_restaurant(meal='dinner')
-    message.reply("Que tal jantar no %s? O endereço é %s" % (choice, address))
+    message.reply("Que tal comer no %s? O endereço é %s" % (choice, address))
 
 @respond_to('evento', re.IGNORECASE)
 def event_reply(message):
