@@ -46,11 +46,11 @@ def eat_reply(message):
     current_time = dt.datetime.now().hour
     weekday = dt.datetime.today().weekday()
     if current_time < 15 and weekday >= 5:
-        message.reply('Hmmmm... Deixe eu pensar em um lugar legal para almoçar.')
+        message.reply('Hmmmm... Deixa eu pensar em um lugar legal para almoçar.')
         time.sleep(3)
         lunch_reply(message)
     else:
-        message.reply('Hmmmm... Deixe eu pensar em um lugar legal para jantar.')
+        message.reply('Hmmmm... Deixa eu pensar em um lugar legal para jantar.')
         time.sleep(3)
         dinner_reply(message)
 
