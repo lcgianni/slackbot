@@ -34,7 +34,7 @@ effect.
 # BOT_EMOJI = ':godmode:'
 
 '''Specify a different reply when the bot is messaged with no matching cmd'''
-DEFAULT_REPLY = "Desculpa, não entendi"
+DEFAULT_REPLY = "Desculpa, não entendi muito bem. Posso lhe dar dicas de onde comer e lugares para visitar em São Francisco."
 
 for key in os.environ:
     if key[:9] == 'SLACKBOT_':
