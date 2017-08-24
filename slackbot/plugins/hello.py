@@ -15,9 +15,9 @@ def choose_restaurant(meal='lunch'):
     return choice, address[meal][choice]
 
 def choose_experience():
-    choices = ['Caminhe até a Golden Gate Bridge',
+    options = ['Caminhe até a Golden Gate Bridge',
                'Conheça o Golden Gate Park']
-    choice = random.choice(list(choices.keys()))
+    choice = random.choice(options)
     return choice
 
 @respond_to('hello|hi|hey|olá|ola|oi', re.IGNORECASE)
