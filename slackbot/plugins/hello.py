@@ -14,6 +14,12 @@ def choose_restaurant(meal='lunch'):
     choice = random.choice(list(address[meal].keys()))
     return choice, address[meal][choice]
 
+def choose_experience():
+    choices = ['Caminhe até a Golden Gate Bridge',
+               'Conheça o Golden Gate Park']
+    choice = random.choice(list(choices.keys()))
+    return choice
+
 @respond_to('hello|hi|hey|olá|ola|oi', re.IGNORECASE)
 def hello_reply(message):
     message.reply('Olá, como posso lhe ajudar?')
@@ -56,9 +62,9 @@ def dinner_reply(message):
 def event_reply(message):
     message.reply('Dê uma olhada no eventbrite.com ou meetup.com')
 
-@respond_to('entediado|bored', re.IGNORECASE)
+@respond_to('entediado|bored|passeio|visita|conhecer|passear|visitar', re.IGNORECASE)
 def bored_reply(message):
-    message.reply('Caminhe até a Golden Gate Bridge')
+    message.reply(choose_experience())
 
 @respond_to('musica|música', re.IGNORECASE)
 def song_reply(message):
