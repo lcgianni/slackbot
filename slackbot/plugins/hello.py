@@ -29,7 +29,9 @@ def choose_experience():
 
 @respond_to('hello|hi|hey|olá|ola|oi', re.IGNORECASE)
 def hello_reply(message):
-    message.reply('Olá, como posso lhe ajudar? Me pergunte sobre onde comer, como chegar na casa e na Galvanize, e passeios para fazer em São Francisco.')
+    message.reply('Olá, como posso lhe ajudar?')
+    wait_before_answering(1)
+    message.reply('Me pergunte sobre onde comer, como chegar na casa e na Galvanize, e passeios para fazer em São Francisco.')
 
 @respond_to('aeroporto.*casa', re.IGNORECASE)
 def arrive_at_house_reply(message):
@@ -47,12 +49,12 @@ def enter_house_reply(message):
 def galvanize_address_reply(message):
     message.reply('O endereço da Galvanize é 543 Howard St.')
 
-def wait_before_answering():
-    time.sleep(3)
+def wait_before_answering(seconds):
+    time.sleep(seconds)
 
 def reply_with_meal(message, meal):
     message.reply('Hmmmm... Deixa eu pensar em um lugar legal para %s.' %(meal))
-    wait_before_answering()
+    wait_before_answering(3)
 
 def is_early():
     if dt.datetime.now().hour < 15: return True; return False
