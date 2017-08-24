@@ -91,7 +91,6 @@ class MessageDispatcher(object):
             return
 
         msg_respond_to = self.filter_text(msg)
-        print(msg_respond_to)
         if msg_respond_to:
             self._pool.add_task(('respond_to', msg_respond_to))
         else:
